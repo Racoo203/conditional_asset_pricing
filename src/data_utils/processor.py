@@ -54,7 +54,7 @@ class SilverProcessor:
             df_month.to_sql("silver_characteristics", self.conn, if_exists=if_exists, index=False)
             
             if i % 50 == 0: 
-                print(f"Processed date {d} ({i}/{len(dates)})")
+                print(f"Processed date {d} ({i}/{len(dates)} = {round(100 * i / len(dates))}%)")
 
         # Create indices for fast joining in Gold step
         self.conn.execute("CREATE INDEX IF NOT EXISTS idx_silver_date ON silver_characteristics(date_fmt)")
@@ -82,3 +82,7 @@ class SilverProcessor:
         counts = pd.read_sql("SELECT permno, COUNT(*) as cnt FROM silver_characteristics GROUP BY permno", self.conn)
         short_history = counts[counts['cnt'] < 12]
         print(f"Info: {len(short_history)} stocks have < 12 months of data (out of {len(counts)} total).")
+
+    def run(self):
+        self.process_characteristics()
+        self.sanity_check()
