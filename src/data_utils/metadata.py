@@ -90,7 +90,7 @@ class DatabaseInspector:
                 stats['max_date'] = max_val
             else:
                 stats['date_info'] = "No obvious date column found"
-                
+
             self.logger.info(f"ANALYZED {table_name}: {stats['row_count']} rows.")
             return stats
         except Exception as e:

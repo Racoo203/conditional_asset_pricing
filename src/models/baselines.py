@@ -1,3 +1,4 @@
+import sys
 import pandas as pd
 import numpy as np
 import sqlite3
@@ -23,12 +24,12 @@ class RollingBenchmark:
         """
         print("Loading Gold Panel...")
         query = "SELECT date_fmt, permno, target_ret_excess, " \
-                "mvel1, bm, mom12m, mom1m, voltty " \
+                "mvel1, bm, mom12m, mom1m, retvol " \
                 "FROM gold_panel ORDER BY date_fmt" 
                 # Note: Expand this list to ALL 90+ characteristics for real run
         
         self.df = pd.read_sql(query, self.conn)
-        print("[INFO] DATA LOADED")
+        print(F"[INFO] DATA LOADED - MEMORY ALLOCATED: {sys.getsizeof(self.df)}")
 
         self.df['date'] = pd.to_datetime(self.df['date_fmt'])
         print("[INFO] DATE PARSED")
@@ -51,30 +52,30 @@ class RollingBenchmark:
 
         print("[INFO] TEST SETS CREATED")
 
-        X_model = self.df.loc[~test_mask]
-        y_model = self.df.loc[~test_mask]
+        X_model = X.loc[~test_mask]
+        y_model = y.loc[~test_mask]
 
         print("[INFO] TRAIN AND VAL SETS INITIALIZED")
 
         # Train loop
-        for fold_idx, (train_idx, val_idx) in tscv.split(X_model):
+        for fold_idx, (train_idx, val_idx) in enumerate(tqdm(tscv.split(X_model))):
 
-            X_train = X_model[train_idx]
-            y_train = y_model[train_idx]
+            X_train = X_model.iloc[train_idx]
+            y_train = y_model.iloc[train_idx]
 
-            X_val = X_model[val_idx]
-            y_val = y_model[val_idx]
+            X_val = X_model.iloc[val_idx]
+            y_val = y_model.iloc[val_idx]
 
             for name, model in self.models.items():
                 model.fit(X_train, y_train)
                 y_pred = model.predict(X_val)
             
-                epoch_res = pd.DataFrame({
+                epoch_res = {
                     'ts_fold': fold_idx,
                     'model': name,
                     'R2_val': r2_score(y_val, y_pred),
-                    'MSE_val': np.sqrt(mean_squared_error(y_val, y_pred))
-                })
+                    'RMSE_val': np.sqrt(mean_squared_error(y_val, y_pred))
+                }
                 results.append(epoch_res)
 
-        return pd.concat(results)
+        return pd.DataFrame(results)
