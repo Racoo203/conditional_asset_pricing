@@ -1,0 +1,1597 @@
+{
+    "bronze_characteristics": {
+        "schema": [
+            {
+                "name": "permno",
+                "type": "INTEGER",
+                "notnull": 0
+            },
+            {
+                "name": "date",
+                "type": "INTEGER",
+                "notnull": 0
+            },
+            {
+                "name": "mvel1",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "beta",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "betasq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chmom",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "dolvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "idiovol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "indmom",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom1m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom6m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom12m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom36m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pricedelay",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "turn",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "absacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "acc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "age",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "agr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "bm",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "bm_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cashdebt",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cashpr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cfp",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cfp_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chatoia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chcsho",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chempia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chpmia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "convind",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "currat",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "depr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "divi",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "divo",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "dy",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "egr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ep",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "gma",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "grcapx",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "grltnoa",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "herf",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "hire",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "invest",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "lev",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "lgr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mve_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "operprof",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "orgcap",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchcapx_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchcurrat",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchdepr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchgm_pchsale",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchquick",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchinvt",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchrect",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchxsga",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsaleinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pctacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ps",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "quick",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd_mve",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd_sale",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "realestate",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roic",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "salecash",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "saleinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "salerec",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "secured",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "securedind",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sgr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sin",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sp",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "tang",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "tb",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "aeavol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cash",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chtx",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cinvest",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ear",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "nincr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roaq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roavol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roeq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rsup",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "stdacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "stdcf",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ms",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "baspread",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ill",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "maxret",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "retvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "std_dolvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "std_turn",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "zerotrade",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sic2",
+                "type": "REAL",
+                "notnull": 0
+            }
+        ],
+        "stats": {
+            "row_count": 4117300,
+            "date_col": "date",
+            "min_date": 19570131,
+            "max_date": 20211231
+        }
+    },
+    "bronze_crsp": {
+        "schema": [
+            {
+                "name": "permno",
+                "type": "INTEGER",
+                "notnull": 0
+            },
+            {
+                "name": "date",
+                "type": "TIMESTAMP",
+                "notnull": 0
+            },
+            {
+                "name": "ret",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "shrout",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "altprc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "primaryexch",
+                "type": "TEXT",
+                "notnull": 0
+            },
+            {
+                "name": "siccd",
+                "type": "INTEGER",
+                "notnull": 0
+            },
+            {
+                "name": "mktcap",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mktcap_lag",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "exchange",
+                "type": "TEXT",
+                "notnull": 0
+            },
+            {
+                "name": "industry",
+                "type": "TEXT",
+                "notnull": 0
+            },
+            {
+                "name": "mkt_excess",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "smb",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "hml",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ret_excess",
+                "type": "REAL",
+                "notnull": 0
+            }
+        ],
+        "stats": {
+            "row_count": 3312949,
+            "date_col": "date",
+            "min_date": "1957-02-01 00:00:00",
+            "max_date": "2021-12-01 00:00:00"
+        }
+    },
+    "silver_characteristics": {
+        "schema": [
+            {
+                "name": "permno",
+                "type": "INTEGER",
+                "notnull": 0
+            },
+            {
+                "name": "date",
+                "type": "INTEGER",
+                "notnull": 0
+            },
+            {
+                "name": "mvel1",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "beta",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "betasq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chmom",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "dolvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "idiovol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "indmom",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom1m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom6m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom12m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom36m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pricedelay",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "turn",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "absacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "acc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "age",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "agr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "bm",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "bm_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cashdebt",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cashpr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cfp",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cfp_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chatoia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chcsho",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chempia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chpmia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "convind",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "currat",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "depr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "divi",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "divo",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "dy",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "egr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ep",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "gma",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "grcapx",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "grltnoa",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "herf",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "hire",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "invest",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "lev",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "lgr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mve_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "operprof",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "orgcap",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchcapx_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchcurrat",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchdepr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchgm_pchsale",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchquick",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchinvt",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchrect",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchxsga",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsaleinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pctacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ps",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "quick",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd_mve",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd_sale",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "realestate",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roic",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "salecash",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "saleinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "salerec",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "secured",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "securedind",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sgr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sin",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sp",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "tang",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "tb",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "aeavol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cash",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chtx",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cinvest",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ear",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "nincr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roaq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roavol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roeq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rsup",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "stdacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "stdcf",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ms",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "baspread",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ill",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "maxret",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "retvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "std_dolvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "std_turn",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "zerotrade",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sic2",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "date_fmt",
+                "type": "TIMESTAMP",
+                "notnull": 0
+            }
+        ],
+        "stats": {
+            "row_count": 4117300,
+            "date_col": "date",
+            "min_date": 19570131,
+            "max_date": 20211231
+        }
+    },
+    "gold_panel": {
+        "schema": [
+            {
+                "name": "permno",
+                "type": "INT",
+                "notnull": 0
+            },
+            {
+                "name": "date",
+                "type": "INT",
+                "notnull": 0
+            },
+            {
+                "name": "mvel1",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "beta",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "betasq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chmom",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "dolvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "idiovol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "indmom",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom1m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom6m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom12m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mom36m",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pricedelay",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "turn",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "absacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "acc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "age",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "agr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "bm",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "bm_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cashdebt",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cashpr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cfp",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cfp_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chatoia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chcsho",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chempia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chpmia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "convind",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "currat",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "depr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "divi",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "divo",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "dy",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "egr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ep",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "gma",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "grcapx",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "grltnoa",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "herf",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "hire",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "invest",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "lev",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "lgr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mve_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "operprof",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "orgcap",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchcapx_ia",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchcurrat",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchdepr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchgm_pchsale",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchquick",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchinvt",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchrect",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsale_pchxsga",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pchsaleinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "pctacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ps",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "quick",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd_mve",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rd_sale",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "realestate",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roic",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "salecash",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "saleinv",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "salerec",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "secured",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "securedind",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sgr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sin",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sp",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "tang",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "tb",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "aeavol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cash",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "chtx",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "cinvest",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ear",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "nincr",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roaq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roavol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "roeq",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "rsup",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "stdacc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "stdcf",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ms",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "baspread",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "ill",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "maxret",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "retvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "std_dolvol",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "std_turn",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "zerotrade",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "sic2",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "date_fmt",
+                "type": "NUM",
+                "notnull": 0
+            },
+            {
+                "name": "join_month",
+                "type": "",
+                "notnull": 0
+            },
+            {
+                "name": "target_ret_excess",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mktcap_next",
+                "type": "REAL",
+                "notnull": 0
+            }
+        ],
+        "stats": {
+            "row_count": 3273562,
+            "date_col": "date",
+            "min_date": 19570131,
+            "max_date": 20211130
+        }
+    }
+}

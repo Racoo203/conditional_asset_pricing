@@ -1,0 +1,14 @@
+[ERROR] FAILED TO CONNECT: unable to open database file
+[INFO] CONNECTED TO DB at data/processed/lakehouse.sqlite
+[INFO] FOUND TABLES: ['bronze_characteristics', 'bronze_crsp', 'silver_characteristics', 'gold_panel']
+[INFO] ANALYZED bronze_characteristics: 4117300 rows.
+[INFO] ANALYZED gold_panel: 3273562 rows.
+[INFO] STARTING FULL METADATA GENERATION...
+[INFO] FOUND TABLES: ['bronze_characteristics', 'bronze_crsp', 'silver_characteristics', 'gold_panel']
+[INFO] ANALYZED bronze_characteristics: 4117300 rows.
+[INFO] ANALYZED bronze_crsp: 3312949 rows.
+[INFO] ANALYZED silver_characteristics: 4117300 rows.
+[INFO] ANALYZED gold_panel: 3273562 rows.
+[INFO] SAVED JSON REPORT: reports/metadata\db_metadata_20260203_153439.json
+[INFO] SAVED MARKDOWN REPORT: reports/metadata\db_metadata_20260203_153439.md
+[INFO] CONNECTION CLOSED
