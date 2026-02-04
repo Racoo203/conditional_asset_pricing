@@ -1,9 +1,9 @@
 import sqlite3
 import pandas as pd
-import logging
 import os
 import json
 from datetime import datetime
+from src.utils.logger import setup_logger # <--- Import shared logger
 
 class DatabaseInspector:
     def __init__(self, db_path, output_dir="reports/metadata"):
@@ -13,8 +13,8 @@ class DatabaseInspector:
         # Ensure output directory exists
         os.makedirs(self.output_dir, exist_ok=True)
         
-        # Setup Logging
-        self.logger = self._setup_logger()
+        # Setup Logging via Shared Utility
+        self.logger = setup_logger("DB_Inspector", log_dir=output_dir)
         
         # Connect
         try:
@@ -24,29 +24,6 @@ class DatabaseInspector:
         except sqlite3.Error as e:
             self.logger.error(f"FAILED TO CONNECT: {e}")
             raise
-
-    def _setup_logger(self):
-        """Configures a custom logger with the requested format."""
-        logger = logging.getLogger("DB_Inspector")
-        logger.setLevel(logging.INFO)
-        
-        # clear handlers if they exist (prevents duplicate logs in notebooks)
-        if logger.hasHandlers():
-            logger.handlers.clear()
-            
-        # Console Handler
-        ch = logging.StreamHandler()
-        formatter = logging.Formatter('[%(levelname)s] %(message)s')
-        ch.setFormatter(formatter)
-        logger.addHandler(ch)
-        
-        # File Handler (logs to a file in the report dir)
-        log_file = os.path.join(self.output_dir, "inspection_log.txt")
-        fh = logging.FileHandler(log_file)
-        fh.setFormatter(formatter)
-        logger.addHandler(fh)
-        
-        return logger
 
     def get_tables(self):
         """Returns a list of all tables in the database."""
@@ -78,7 +55,6 @@ class DatabaseInspector:
             stats['row_count'] = self.cursor.execute(count_query).fetchone()[0]
             
             # Date Range (Heuristic check for common date columns)
-            # We look for columns that likely contain date info
             schema = self.get_table_schema(table_name)
             date_col = next((c['name'] for c in schema if 'date' in c['name'].lower()), None)
             

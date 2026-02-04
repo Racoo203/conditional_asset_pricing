@@ -1,0 +1,11 @@
+[2026-02-04 12:46:21] [INFO] [Trainer] STARTING EXPERIMENT: OLS+H
+[2026-02-04 12:46:21] [INFO] [Trainer]    ... Fitting Final Model
+[2026-02-04 12:46:26] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00988, RMSE=0.19118
+[2026-02-04 12:46:26] [INFO] [Trainer] STARTING EXPERIMENT: OLS-3+H
+[2026-02-04 12:46:26] [INFO] [Trainer]    ... Fitting Final Model
+[2026-02-04 12:46:30] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00751, RMSE=0.19096
+[2026-02-04 12:46:30] [INFO] [Trainer] STARTING EXPERIMENT: ENET-3+H
+[2026-02-04 12:46:31] [INFO] [Trainer]    ... Tuning with Optuna (30 trials)
+[2026-02-04 12:49:09] [INFO] [Trainer]    ... Best Params: {'alpha': 0.0030476680652465485, 'l1_ratio': 0.5268839321421274}
+[2026-02-04 12:49:09] [INFO] [Trainer]    ... Fitting Final Model
+[2026-02-04 12:49:15] [INFO] [Trainer] RESULT ENET-3+H: R2_OOS=-0.00221, RMSE=0.19046
