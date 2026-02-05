@@ -41,9 +41,9 @@ class ModelConfig:
             name = name, 
             model_type = 'pcr', 
             feature_set = feature_set,
-            params = {'n_components': 10},
-            use_optuna = True,
-            optuna_trials = trials
+            params = {'n_components': 3},
+            # use_optuna = True,
+            # optuna_trials = trials
         )
         
         
@@ -72,12 +72,12 @@ class ModelConfig:
         )
 
     @classmethod
-    def MLP(cls, name: str, n_hidden_layers : int = 3, trials: int = 20):
+    def MLP(cls, name: str, feature_set: str = 'all', n_hidden_layers : int = 3, trials: int = 20):
         """Multilayer Perceptron - 1 Hidden Layer."""
         return cls(
             name = name, 
             model_type = 'mlp', 
-            feature_set = 'all',
+            feature_set = feature_set,
             params = {'n_hidden_layers': n_hidden_layers},
             use_optuna = True,
             optuna_trials = trials
