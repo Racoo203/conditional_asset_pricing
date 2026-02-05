@@ -9,7 +9,7 @@ def setup_logger(name: str, log_dir: str = "reports/logs", console: bool = True)
     Args:
         name (str): The name of the logger (e.g., 'DB_Inspector').
         log_dir (str): Directory where log files will be saved.
-        console (bool): Whether to print logs to stdout.
+        console (bool): Whether to print logs.
     
     Returns:
         logging.Logger: Configured logger instance.
