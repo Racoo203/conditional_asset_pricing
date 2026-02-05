@@ -1,38 +1,68 @@
 import numpy as np
 import pandas as pd
 import optuna
-from sklearn.linear_model import HuberRegressor, SGDRegressor
-from src.evaluation.metrics import regression_metrics
-from src.models.config import ModelConfig
-from src.utils.logger import setup_logger
 from typing import List, Optional
+
+# Models
+from sklearn.linear_model import HuberRegressor, SGDRegressor, LinearRegression
+from sklearn.neural_network import MLPRegressor
+from sklearn.decomposition import PCA
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestRegressor
+from xgboost import XGBRegressor
+
+# Utils
+from src.evaluation.metrics import regression_metrics
+from src.models.config import ModelConfig, ModelFactory
+from src.utils.logger import setup_logger
 
 # Setup Logger for this module
 logger = setup_logger("Trainer", log_dir="reports/experiments")
 
 class ModelFactory:
-    """Helper class to separate model instantiation logic from training logic."""
-    
     @staticmethod
     def create_model(config: ModelConfig, trial: Optional[optuna.Trial] = None):
         params = config.params.copy()
 
-        # --- OPTUNA INJECTION ---
-        if config.use_optuna and trial is not None:
-            if config.model_type == 'sgd_huber':
-                params['alpha'] = trial.suggest_float('alpha', 1e-4, 1e-1, log=True)
-                params['l1_ratio'] = trial.suggest_float('l1_ratio', 0.0, 1.0)
+        if config.use_optuna and trial:
+            if config.model_type == 'xgboost':
+                params['learning_rate'] = trial.suggest_float('learning_rate', 0.01, 0.3)
+                params['max_depth'] = trial.suggest_int('max_depth', 1, 6)
+                params['n_estimators'] = trial.suggest_int('n_estimators', 50, 300)
             
-            elif config.model_type == 'huber':
-                params['epsilon'] = trial.suggest_float('epsilon', 1.0, 2.0)
+            elif config.model_type == 'pcr':
+                # Tune number of components
+                params['n_components'] = trial.suggest_int('n_components', 1, 50)
 
-        # --- INSTANTIATION ---
         if config.model_type == 'huber':
             return HuberRegressor(**params)
         
         elif config.model_type == 'sgd_huber':
             return SGDRegressor(loss='huber', penalty='elasticnet', **params)
-        
+            
+        elif config.model_type == 'pcr':
+
+            return Pipeline([
+                ('pca', PCA(n_components=params['n_components'])),
+                ('reg', LinearRegression())
+            ])
+            
+        elif config.model_type == 'random_forest':
+            return RandomForestRegressor(**params)
+            
+        elif config.model_type == 'xgboost':
+            return XGBRegressor(objective='reg:squarederror', **params)
+            
+        elif config.model_type == 'mlp':
+            # (64, 32, 16, 8, 4)
+            hidden_layers_sizes = tuple([2**(6-n) for n in range(config.n_hidden_layers)])
+
+            return MLPRegressor(
+                hidden_layer_sizes = hidden_layers_sizes, 
+                early_stopping = True, 
+                **params
+            )
+            
         else:
             raise ValueError(f"Unknown model_type: {config.model_type}")
 
