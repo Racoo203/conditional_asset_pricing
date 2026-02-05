@@ -65,6 +65,7 @@ dependencies:
   - libwebp-base=1.6.0=h4d5522a_0
   - libwinpthread=12.0.0.r4.gg4f2fc60ca=h57928b3_10
   - libxcb=1.17.0=h0e4246c_0
+  - libxgboost=3.1.3=cpu_hd161407_0
   - libxml2=2.15.1=h779ef1b_1
   - libxml2-16=2.15.1=h3cfd58e_1
   - libzlib=1.3.1=h2466b09_2
@@ -94,6 +95,7 @@ dependencies:
   - psutil=7.2.1=py313h5fd188c_0
   - pthread-stubs=0.4=h0e40799_1002
   - pure_eval=0.2.3=pyhd8ed1ab_1
+  - py-xgboost=3.1.3=cpu_pyh718b53a_0
   - pygments=2.19.2=pyhd8ed1ab_0
   - pyparsing=3.3.2=pyhcf101f3_0
   - pytest=9.0.2=pyhcf101f3_0
@@ -128,6 +130,7 @@ dependencies:
   - vc14_runtime=14.44.35208=h818238b_34
   - vcomp14=14.44.35208=h818238b_34
   - wcwidth=0.2.14=pyhd8ed1ab_0
+  - xgboost=3.1.3=cpu_pyhb39878e_0
   - xorg-libxau=1.0.12=hba3369d_1
   - xorg-libxdmcp=1.1.5=hba3369d_1
   - yaml=0.2.5=h6a83c73_3

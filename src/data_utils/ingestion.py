@@ -5,11 +5,9 @@ import tidyfinance as tf
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
-# Strict types prevent pandas from misinterpreting IDs as floats
 GKX_DTYPES = {
     'permno': 'int64',
     'DATE': 'int64', 
-    # Add 'siccd': 'float64' if it contains NaNs, otherwise 'int64'
 }
 
 class BronzeIngestor:
@@ -26,13 +24,13 @@ class BronzeIngestor:
         """
         print(f"Starting CRSP download: {self.start_date} to {self.end_date}...")
         
-        connection_string = (
-            "postgresql+psycopg2://"
-            f"{os.getenv('WRDS_USER')}:{os.getenv('WRDS_PASSWORD')}"
-            "@wrds-pgdata.wharton.upenn.edu:9737/wrds"
-        )
+        # connection_string = (
+        #     "postgresql+psycopg2://"
+        #     f"{os.getenv('WRDS_USER')}:{os.getenv('WRDS_PASSWORD')}"
+        #     "@wrds-pgdata.wharton.upenn.edu:9737/wrds"
+        # )
         
-        wrds = create_engine(connection_string, pool_pre_ping=True)
+        # wrds = create_engine(connection_string, pool_pre_ping=True)
 
         try:
             crsp_monthly = tf.download_data(

@@ -3,20 +3,14 @@ import pandas as pd
 import os
 import json
 from datetime import datetime
-from src.utils.logger import setup_logger # <--- Import shared logger
+from src.utils.logger import setup_logger 
 
 class DatabaseInspector:
     def __init__(self, db_path, output_dir="reports/metadata"):
         self.db_path = db_path
         self.output_dir = output_dir
-        
-        # Ensure output directory exists
-        os.makedirs(self.output_dir, exist_ok=True)
-        
-        # Setup Logging via Shared Utility
         self.logger = setup_logger("DB_Inspector", log_dir=output_dir)
         
-        # Connect
         try:
             self.conn = sqlite3.connect(db_path)
             self.cursor = self.conn.cursor()
