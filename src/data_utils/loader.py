@@ -22,20 +22,26 @@ class DataLoader:
         """
 
         conn = sqlite3.connect(self.db_path)
-        base_cols = ['perm_no', date_col, target_col]
+        base_cols = ['permno', date_col, target_col]
 
         if feature_cols:
             cols_to_load = base_cols + feature_cols
             query_cols = ", ".join(cols_to_load)
+            self.logger.info(f"STREAMING DATA, NUMBER OF COLUMNS: {len(cols_to_load)}...")
+
         else:
-            query_cols = "*"        
+            query_cols = "*"
+            self.logger.info(f"STREAMING DATA, ALL COLUMNS...")
 
         query = f"SELECT {query_cols} FROM gold_panel ORDER BY {date_col}"
-        self.logger.info(f"STREAMING DATA, NUMBER OF COLUMNS: {len(query_cols)}...")
 
         try:
             df = pd.read_sql(query, conn)
             df['date'] = pd.to_datetime(df[date_col])
+
+            float_cols = df.select_dtypes(include=['float64']).columns
+            df[float_cols] = df[float_cols].astype('float32')
+
             df.drop(columns=[date_col], inplace=True)
 
             mem_usage = df.memory_usage(deep=True).sum() / 1e9

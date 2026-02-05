@@ -13,7 +13,7 @@ from xgboost import XGBRegressor
 
 # Utils
 from src.evaluation.metrics import regression_metrics
-from src.models.config import ModelConfig, ModelFactory
+from src.models.config import ModelConfig
 from src.utils.logger import setup_logger
 
 # Setup Logger for this module
@@ -55,7 +55,7 @@ class ModelFactory:
             
         elif config.model_type == 'mlp':
             # (64, 32, 16, 8, 4)
-            hidden_layers_sizes = tuple([2**(6-n) for n in range(config.n_hidden_layers)])
+            hidden_layers_sizes = tuple([2**(6-n) for n in range(config.params['n_hidden_layers'])])
 
             return MLPRegressor(
                 hidden_layer_sizes = hidden_layers_sizes, 

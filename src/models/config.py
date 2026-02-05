@@ -12,13 +12,13 @@ class ModelConfig:
     description: Optional[str] = None
 
     @classmethod
-    def OLS_Huber(cls, name: str, feature_set: str = 'all', epsilon: float = 1.35):
+    def OLS_Huber(cls, name: str, feature_set: str = 'all'):
         """Creates a standard OLS-Huber configuration."""
         return cls(
             name = name,
             model_type = 'huber',
             feature_set = feature_set,
-            params = {'epsilon': epsilon},
+            params = {'epsilon': 1.35},
             use_optuna = False
         )
 
@@ -35,37 +35,37 @@ class ModelConfig:
         )
     
     @classmethod
-    def PCR(cls, name: str, n_components: int = 10, trials: int = 20):
+    def PCR(cls, name: str, feature_set: str = 'all', trials: int = 20):
         """Principal Component Regression."""
         return cls(
             name = name, 
             model_type = 'pcr', 
-            feature_set = 'all',
-            params = {'n_components': n_components},
+            feature_set = feature_set,
+            params = {'n_components': 10},
             use_optuna = True,
             optuna_trials = trials
         )
         
         
     @classmethod
-    def RandomForest(cls, name: str, trees: int = 100, depth: int = 3, trials: int = 20):
+    def RandomForest(cls, name: str, feature_set: str = 'all', trials: int = 20):
         """Random Forest."""
         return cls(
             name = name, 
             model_type = 'random_forest', 
-            feature_set = 'all',
-            params = {'n_estimators': trees, 'max_depth': depth, 'n_jobs': -1},
+            feature_set = feature_set,
+            params = {'n_estimators': 100, 'max_depth': 3, 'n_jobs': -1},
             use_optuna = True,
             optuna_trials = trials
         )
 
     @classmethod
-    def XGBoost(cls, name: str, trials: int = 20):
+    def XGBoost(cls, name: str, feature_set: str = 'all', trials: int = 20):
         """XGBoost Regressor."""
         return cls(
             name = name, 
             model_type = 'xgboost', 
-            feature_set = 'all',
+            feature_set = feature_set,
             params = {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'n_jobs': -1},
             use_optuna = True,
             optuna_trials = trials
