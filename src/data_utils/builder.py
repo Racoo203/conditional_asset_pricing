@@ -1,69 +1,124 @@
 import sqlite3
 import pandas as pd
+import os
+import shutil
+import glob
+from tqdm import tqdm
+from collections import defaultdict
+from src.utils.logger import setup_logger
+
+logger = setup_logger("GoldBuilder", "reports/logs")
 
 class GoldBuilder:
-    def __init__(self, db_path: str):
+    def __init__(self, db_path: str, silver_path: str = "data/processed/silver", output_path: str = "data/processed/gold_panel"):
+        self.db_path = db_path
+        self.silver_path = silver_path
+        self.output_path = output_path
         self.conn = sqlite3.connect(db_path)
 
-    def build_modeling_panel(self):
-        print("Building Gold Panel (Joining Returns)...")
+    def _load_returns_lookup(self):
+        """Loads the returns into a memory lookup table."""
+        logger.info("Loading Returns for Lookup...")
+        query = "SELECT permno, date, ret_excess, mktcap FROM bronze_crsp"
+        df_ret = pd.read_sql(query, self.conn)
         
-        try:
-            # 1. Prepare the Silver table with a pre-calculated join key
-            # This avoids running strftime() millions of times during the JOIN
-            self.conn.execute("DROP TABLE IF EXISTS silver_temp")
-            self.conn.execute("""
-                CREATE TABLE silver_temp AS 
-                SELECT *, 
-                       strftime('%Y-%m', date_fmt, '+1 month') as join_month
-                FROM silver_characteristics
-            """)
-            
-            # 2. Create high-performance indexes
-            # We index (permno, join_month) to make the JOIN an O(log n) operation
-            print("Creating temporary indexes...")
-            self.conn.execute("CREATE INDEX idx_s_temp ON silver_temp(permno, join_month)")
-            
-            # Ensure the bronze table has a similar index for the lookup
-            # We use an expression-based index here to match the join logic
-            self.conn.execute("""
-                CREATE INDEX IF NOT EXISTS idx_c_lookup 
-                ON bronze_crsp(permno, strftime('%Y-%m', date))
-            """)
+        df_ret['date'] = pd.to_datetime(df_ret['date'])
+        # Create Join Key: Char(Jan) joins with Ret(Feb)
+        df_ret['join_key'] = df_ret['date'].dt.to_period('M')
+        
+        return df_ret
 
-            # 3. Execute the Join
-            self.conn.execute("DROP TABLE IF EXISTS gold_panel")
-            query = """
-            CREATE TABLE gold_panel AS
-            SELECT 
-                s.*,
-                c.ret_excess as target_ret_excess,
-                c.mktcap as mktcap_next
-            FROM silver_temp s
-            INNER JOIN bronze_crsp c 
-                ON s.permno = c.permno 
-                AND s.join_month = strftime('%Y-%m', c.date)
-            """
+    def _group_files_by_year(self):
+        """Scans the Silver directory and groups parquet files by Year."""
+        pattern = os.path.join(self.silver_path, "date=*", "*.parquet")
+        files = glob.glob(pattern)
+        
+        if not files:
+            raise FileNotFoundError(f"No Silver Parquet files found in {self.silver_path}")
             
-            self.conn.execute(query)
-            
-            # Clean up and final index
-            self.conn.execute("DROP TABLE silver_temp")
-            self.conn.execute("CREATE INDEX IF NOT EXISTS idx_gold_date ON gold_panel(date_fmt)")
-            
-            print("Gold panel built successfully.")
-            
-        except Exception as e:
-            print(f"Gold Build Failed: {e}")
+        files_by_year = defaultdict(list)
+        
+        for f in files:
+            try:
+                # Robustly extract year from "date=YYYYMMDD"
+                # Split path by 'date=' and take the first 4 chars of the next segment
+                part_segment = f.split("date=")[1]
+                year = part_segment[:4]
+                files_by_year[year].append(f)
+            except IndexError:
+                continue
+                
+        return files_by_year
 
-    def validate_alignment(self):
-        """
-        Simple check to ensure we didn't accidentally map t to t.
-        """
-        df = pd.read_sql("SELECT date_fmt, target_ret_excess FROM gold_panel LIMIT 5", self.conn)
-        print("Sample of Gold Panel (Check dates manually):")
-        print(df)
+    def build_parquet(self):
+        logger.info(f"BUILDING GOLD PANEL AT {self.output_path}...")
+        
+        # 1. Load Returns
+        df_ret = self._load_returns_lookup()
+        
+        # 2. Map Files
+        files_by_year = self._group_files_by_year()
+        sorted_years = sorted(files_by_year.keys())
+        
+        # 3. Clean output dir
+        if os.path.exists(self.output_path):
+            shutil.rmtree(self.output_path)
+        os.makedirs(self.output_path)
+
+        # 4. Stream & Join
+        for year in tqdm(sorted_years, desc="Processing Years"):
+            year_files = files_by_year[year]
+            
+            # --- THE FIX: LOOP & CONCAT ---
+            # We read files individually to avoid Arrow inferring "date" as a partition key
+            daily_dfs = []
+            for f in year_files:
+                # Read specific file path. 
+                # Pandas treats this as a flat file and won't conflict with the folder name.
+                daily_dfs.append(pd.read_parquet(f))
+            
+            if not daily_dfs:
+                continue
+            
+            df_char = pd.concat(daily_dfs, ignore_index=True)
+            # ------------------------------
+            
+            # Ensure Date Format
+            if not pd.api.types.is_datetime64_any_dtype(df_char['date']):
+                df_char['date'] = pd.to_datetime(df_char['date'], format='%Y%m%d')
+            
+            # Create Join Key: The NEXT month
+            df_char['join_key'] = df_char['date'].dt.to_period('M') + 1
+            
+            # Merge (Inner Join = Strict Alignment)
+            df_merged = pd.merge(
+                df_char,
+                df_ret[['permno', 'join_key', 'ret_excess', 'mktcap']],
+                on=['permno', 'join_key'],
+                how='inner',
+                suffixes=('', '_next')
+            )
+            
+            if df_merged.empty:
+                continue
+
+            # Rename & Clean
+            df_merged.rename(columns={'ret_excess': 'target_ret_excess', 'mktcap': 'mktcap_next'}, inplace=True)
+            df_merged.drop(columns=['join_key'], inplace=True)
+            
+            # Add Partition Column for Gold
+            df_merged['year'] = int(year)
+            
+            # Save Partition (Hive Style: year=YYYY/part.parquet)
+            df_merged.to_parquet(
+                self.output_path, 
+                partition_cols=['year'], 
+                index=False, 
+                engine='pyarrow', 
+                compression='snappy'
+            )
+            
+        logger.info("GOLD PANEL PARQUET BUILD COMPLETE")
 
     def run(self):
-        self.build_modeling_panel()
-        self.validate_alignment()
+        self.build_parquet()
