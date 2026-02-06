@@ -70,3 +70,17 @@
 [2026-02-05 21:45:32] [INFO] [Trainer] RESULT PCR: R2_OOS=0.00176, RMSE=0.19008
 [2026-02-05 21:45:32] [INFO] [Trainer] STARTING EXPERIMENT: RF
 [2026-02-05 21:45:32] [INFO] [Trainer]    ... Tuning with Optuna (30 trials)
+[2026-02-05 21:51:50] [INFO] [Trainer] STARTING EXPERIMENT: OLS+H
+[2026-02-05 21:51:51] [INFO] [Trainer]    ... Fitting Final Model
+[2026-02-05 21:51:56] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00988, RMSE=0.19118
+[2026-02-05 21:51:56] [INFO] [Trainer] STARTING EXPERIMENT: OLS-3+H
+[2026-02-05 21:51:56] [INFO] [Trainer]    ... Fitting Final Model
+[2026-02-05 21:52:01] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00751, RMSE=0.19096
+[2026-02-05 21:52:01] [INFO] [Trainer] STARTING EXPERIMENT: ENet+H
+[2026-02-05 21:52:01] [INFO] [Trainer]    ... Tuning with Optuna (30 trials)
+[2026-02-05 21:55:02] [INFO] [Trainer]    ... Best Params: {'alpha': 0.0001, 'l1_ratio': 0.15}
+[2026-02-05 21:55:02] [INFO] [Trainer]    ... Fitting Final Model
+[2026-02-05 21:55:07] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.01040, RMSE=0.19123
+[2026-02-05 21:55:07] [INFO] [Trainer] STARTING EXPERIMENT: PCR
+[2026-02-05 21:55:07] [INFO] [Trainer]    ... Fitting Final Model
+[2026-02-05 21:55:07] [INFO] [Trainer] RESULT PCR: R2_OOS=0.00176, RMSE=0.19008
