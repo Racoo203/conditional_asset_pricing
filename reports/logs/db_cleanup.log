@@ -1,0 +1,6 @@
+[2026-02-06 18:14:20] [INFO] [DB_Cleanup] Cleaning database: data/processed/lakehouse.sqlite
+[2026-02-06 18:14:35] [INFO] [DB_Cleanup] Dropped table: silver_characteristics
+[2026-02-06 18:14:47] [INFO] [DB_Cleanup] Dropped table: gold_panel
+[2026-02-06 18:14:47] [INFO] [DB_Cleanup] Dropped table: silver_temp
+[2026-02-06 18:14:47] [INFO] [DB_Cleanup] Running VACUUM (This re-writes the DB file)...
+[2026-02-06 18:16:38] [INFO] [DB_Cleanup] ✅ Database optimized. Size should be significantly reduced.

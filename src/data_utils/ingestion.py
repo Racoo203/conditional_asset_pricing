@@ -26,11 +26,12 @@ class BronzeIngestor:
     
         try:
             crsp_monthly = tf.download_data(
-                domain="wrds",
-                dataset="crsp_monthly",
-                start_date=self.start_date,
-                end_date=self.end_date
+                domain = "wrds",
+                dataset = "crsp_monthly",
+                start_date = self.start_date,
+                end_date = self.end_date
             )
+            
         except Exception as e:
             raise RuntimeError(f"CRSP Download failed. Check WRDS credentials. Error: {e}")
 
