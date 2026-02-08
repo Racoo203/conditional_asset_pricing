@@ -43,3 +43,6 @@
 [2026-02-08 23:06:04] [INFO] [ParquetLoader] REQ: Loading ALL columns...
 [2026-02-08 23:06:04] [INFO] [ParquetLoader] SOURCE: data/processed/gold_panel
 [2026-02-08 23:06:18] [INFO] [ParquetLoader] LOAD COMPLETE. Shape: (3280700, 100) | RAM: 1.33 GB
+[2026-02-08 23:09:50] [INFO] [ParquetLoader] REQ: Loading ALL columns...
+[2026-02-08 23:09:50] [INFO] [ParquetLoader] SOURCE: data/processed/gold_panel
+[2026-02-08 23:10:01] [INFO] [ParquetLoader] LOAD COMPLETE. Shape: (3280700, 100) | RAM: 1.33 GB

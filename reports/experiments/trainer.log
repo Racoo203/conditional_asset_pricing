@@ -171,3 +171,7 @@
 [2026-02-08 23:06:18] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
 [2026-02-08 23:06:19] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
 [2026-02-08 23:06:19] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 23:10:02] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 23:10:02] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 23:10:03] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-08 23:10:03] [INFO] [Trainer]    > Training Final Model (OLS+H)...
