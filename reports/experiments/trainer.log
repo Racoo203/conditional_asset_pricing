@@ -107,3 +107,67 @@
 [2026-02-06 19:26:21] [INFO] [Trainer] Split Date: 2008-12-31 00:00:00 | Train Rows: 2698578 | Test Rows: 582122
 [2026-02-06 19:26:22] [INFO] [Trainer]    ... Fitting Final Model
 [2026-02-06 19:26:23] [INFO] [Trainer] RESULT PCR: R2_OOS=0.00428, RMSE=0.19159
+[2026-02-07 20:16:36] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-07 20:16:36] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-07 20:16:38] [INFO] [Trainer]    > Tuning with Optuna (30 trials)...
+[2026-02-07 22:50:49] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-07 22:50:49] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-07 22:50:51] [INFO] [Trainer]    > Tuning with Optuna (1 trials)...
+[2026-02-08 16:09:56] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 16:09:56] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 16:09:57] [INFO] [Trainer]    > Tuning OLS+H with Optuna (1 trials)...
+[2026-02-08 16:14:36] [INFO] [Trainer]    > Study Best Value: -0.00258
+[2026-02-08 16:14:36] [INFO] [Trainer]    > Study Best Params: {'epsilon': 1.5304625871720496, 'alpha': 2.842902278712159e-05}
+[2026-02-08 16:14:36] [INFO] [Trainer]    > Saved best params to data/params\OLS+H.json
+[2026-02-08 16:14:36] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 16:18:39] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00104 | RMSE=0.19210
+[2026-02-08 16:18:39] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-08 16:18:39] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 16:18:41] [INFO] [Trainer]    > Tuning OLS-3+H with Optuna (1 trials)...
+[2026-02-08 16:18:50] [INFO] [Trainer]    > Study Best Value: -0.00192
+[2026-02-08 16:18:50] [INFO] [Trainer]    > Study Best Params: {'epsilon': 1.0562448227549837, 'alpha': 0.000262737311438211}
+[2026-02-08 16:18:50] [INFO] [Trainer]    > Saved best params to data/params\OLS-3+H.json
+[2026-02-08 16:18:50] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-08 16:18:56] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00671 | RMSE=0.19264
+[2026-02-08 16:18:56] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-08 16:18:56] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 16:18:57] [INFO] [Trainer]    > Tuning ENet+H with Optuna (1 trials)...
+[2026-02-08 16:23:30] [INFO] [Trainer]    > Study Best Value: -1768.55945
+[2026-02-08 16:23:30] [INFO] [Trainer]    > Study Best Params: {'alpha': 0.0001449305120426439, 'l1_ratio': 0.3084485904212455}
+[2026-02-08 16:23:30] [INFO] [Trainer]    > Saved best params to data/params\ENet+H.json
+[2026-02-08 16:23:30] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-08 16:30:27] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-4619835392.00000 | RMSE=13050.23895
+[2026-02-08 16:30:27] [INFO] [Trainer] --- STARTING EXPERIMENT: PCR ---
+[2026-02-08 16:30:27] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 16:30:28] [INFO] [Trainer]    > Tuning PCR with Optuna (1 trials)...
+[2026-02-08 16:30:37] [INFO] [Trainer]    > Study Best Value: 0.00113
+[2026-02-08 16:30:37] [INFO] [Trainer]    > Study Best Params: {'n_components': 39}
+[2026-02-08 16:30:37] [INFO] [Trainer]    > Saved best params to data/params\PCR.json
+[2026-02-08 16:30:37] [INFO] [Trainer]    > Training Final Model (PCR)...
+[2026-02-08 16:30:43] [INFO] [Trainer] RESULT PCR: R2_OOS=0.00428 | RMSE=0.19159
+[2026-02-08 16:32:43] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 16:32:43] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 16:32:43] [INFO] [Trainer]    > Tuning OLS+H with Optuna (29 trials)...
+[2026-02-08 17:51:56] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 17:51:56] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 17:51:57] [INFO] [Trainer]    > Tuning OLS+H with Optuna (30 trials)...
+[2026-02-08 17:51:58] [INFO] [Trainer]    > Resuming study. Existing: 11. Running 19 more...
+[2026-02-08 20:54:37] [INFO] [Trainer]    > Study Best Value: -0.00066
+[2026-02-08 20:54:37] [INFO] [Trainer]    > Study Best Params: {'epsilon': 1.8924065711905984, 'alpha': 0.0018531712951033571}
+[2026-02-08 20:54:37] [INFO] [Trainer]    > Saved best params to data/params\OLS+H.json
+[2026-02-08 20:54:37] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 21:00:13] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00642 | RMSE=0.19262
+[2026-02-08 21:00:13] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-08 21:00:13] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 21:00:34] [INFO] [Trainer]    > Tuning OLS-3+H with Optuna (30 trials)...
+[2026-02-08 21:00:34] [INFO] [Trainer]    > Resuming study. Existing: 1. Running 29 more...
+[2026-02-08 22:23:31] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 22:23:32] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 22:23:33] [INFO] [Trainer]    > Tuning OLS+H with Optuna (30 trials)...
+[2026-02-08 22:23:34] [INFO] [Trainer]    > Study already has 30 trials (Target: 30). Skipping tuning.
+[2026-02-08 22:23:34] [INFO] [Trainer]    > Saved best params to data/params\OLS+H.json
+[2026-02-08 22:23:34] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 23:06:18] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 23:06:18] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 23:06:19] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-08 23:06:19] [INFO] [Trainer]    > Training Final Model (OLS+H)...
