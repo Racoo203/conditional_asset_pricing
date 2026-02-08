@@ -1,0 +1,3 @@
+[2026-02-06 16:19:12] [INFO] [SilverProcessor] Starting Parallel Processing (Jobs: -1)...
+[2026-02-06 16:19:16] [INFO] [SilverProcessor] Found 780 months to process.
+[2026-02-06 16:38:22] [INFO] [SilverProcessor] Silver Processing Complete (Parquet).
