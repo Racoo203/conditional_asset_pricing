@@ -175,3 +175,300 @@
 [2026-02-08 23:10:02] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
 [2026-02-08 23:10:03] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
 [2026-02-08 23:10:03] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 23:18:11] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 23:18:11] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 23:18:12] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-08 23:18:12] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 23:21:50] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00642 | RMSE=0.19262
+[2026-02-08 23:22:57] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 23:22:57] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 23:22:58] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-08 23:22:58] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 23:31:25] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 23:31:25] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 23:31:26] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-08 23:31:26] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 23:35:06] [INFO] [Trainer]    > Saving model to models/trained\OLS+H.joblib...
+[2026-02-08 23:36:42] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-08 23:36:42] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 23:36:43] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-08 23:36:43] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-08 23:40:15] [INFO] [Trainer]    > Saving model to src/models/trained\OLS+H.joblib...
+[2026-02-08 23:40:16] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00642 | RMSE=0.19262
+[2026-02-08 23:40:16] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-08 23:40:16] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 23:40:17] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS-3+H.json
+[2026-02-08 23:40:17] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-08 23:40:20] [INFO] [Trainer]    > Saving model to src/models/trained\OLS-3+H.joblib...
+[2026-02-08 23:40:20] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00671 | RMSE=0.19264
+[2026-02-08 23:40:20] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-08 23:40:20] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-08 23:40:21] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-08 23:40:23] [INFO] [Trainer]    > Resuming: Found 1 trials. Running 29 more...
+[2026-02-09 00:22:04] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-09 00:22:04] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:22:05] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-09 00:22:05] [INFO] [Trainer]    > Loading pre-trained model from src/models/trained\OLS+H.joblib...
+[2026-02-09 00:22:05] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00642 | RMSE=0.19262
+[2026-02-09 00:22:05] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 00:22:05] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:22:06] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS-3+H.json
+[2026-02-09 00:22:06] [INFO] [Trainer]    > Loading pre-trained model from src/models/trained\OLS-3+H.joblib...
+[2026-02-09 00:22:06] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00671 | RMSE=0.19264
+[2026-02-09 00:22:06] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 00:22:06] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:22:07] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 00:22:08] [INFO] [Trainer]    > Resuming: Found 3 trials. Running 27 more...
+[2026-02-09 00:25:34] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-09 00:25:34] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:25:35] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-09 00:25:35] [INFO] [Trainer]    > Loading pre-trained model from src/models/trained\OLS+H.joblib...
+[2026-02-09 00:25:35] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00642 | RMSE=0.19262
+[2026-02-09 00:25:35] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 00:25:35] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:25:36] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00671 | RMSE=0.19264
+[2026-02-09 00:25:36] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 00:25:36] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:25:36] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 00:25:37] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 00:30:34] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-09 00:30:34] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:30:34] [INFO] [Trainer]    > Loaded persisted params from data/params\OLS+H.json
+[2026-02-09 00:30:34] [INFO] [Trainer]    > Loading pre-trained model from src/models/trained\OLS+H.joblib...
+[2026-02-09 00:30:35] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00642 | RMSE=0.19262
+[2026-02-09 00:30:35] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 00:30:35] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:30:35] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00671 | RMSE=0.19264
+[2026-02-09 00:30:36] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 00:30:36] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:30:36] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 00:30:37] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 00:32:44] [INFO] [Trainer] --- STARTING EXPERIMENT: NN1 ---
+[2026-02-09 00:32:44] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:32:45] [INFO] [Trainer]    > Checking Optuna state for NN1...
+[2026-02-09 00:32:46] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 1 more...
+[2026-02-09 00:40:40] [INFO] [Trainer] --- STARTING EXPERIMENT: NN1 ---
+[2026-02-09 00:40:40] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:40:41] [INFO] [Trainer]    > Checking Optuna state for NN1...
+[2026-02-09 00:40:42] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 1 more...
+[2026-02-09 00:57:44] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 00:57:44] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 00:57:45] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 00:57:47] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 01:01:06] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-09 01:01:06] [INFO] [Trainer]    > Saved best params to data/params\OLS-3+H.json
+[2026-02-09 01:01:06] [INFO] [Trainer]    > Best Params (DB): {'epsilon': 1.8991021425999237, 'alpha': 0.00010816147324705092}
+[2026-02-09 01:01:06] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-09 01:01:10] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H.joblib
+[2026-02-09 01:01:10] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00525 | RMSE=0.19251
+[2026-02-09 01:01:11] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 01:01:11] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 01:01:11] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 01:01:11] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 01:04:13] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 01:04:13] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 01:04:14] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 01:04:15] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 01:04:15] [INFO] [Trainer]    > Saved best params to data/params\OLS-3+H.json
+[2026-02-09 01:04:15] [INFO] [Trainer]    > Best Params (DB): {'epsilon': 1.8991021425999237, 'alpha': 0.00010816147324705092}
+[2026-02-09 01:04:15] [INFO] [Trainer]    ! Params have changed since last training. Forcing Retrain.
+[2026-02-09 01:04:15] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-09 01:04:22] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H.joblib
+[2026-02-09 01:04:22] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00525 | RMSE=0.19251
+[2026-02-09 01:04:23] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 01:04:23] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 01:04:24] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 01:04:24] [INFO] [Trainer]    > Resuming: Found 25 trials. Running 5 more...
+[2026-02-09 01:04:49] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-09 01:04:49] [INFO] [Trainer]    > Saved best params to data/params\ENet+H.json
+[2026-02-09 01:04:49] [INFO] [Trainer]    > Best Params (DB): {'alpha': 0.006140123387703567, 'l1_ratio': 0.712664799801417}
+[2026-02-09 01:04:49] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-09 01:04:54] [INFO] [Trainer]    > Saved trained model to src/models/trained\ENet+H.joblib
+[2026-02-09 01:04:54] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.00337 | RMSE=0.19233
+[2026-02-09 01:04:54] [INFO] [Trainer] --- STARTING EXPERIMENT: PCR ---
+[2026-02-09 01:04:54] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 01:04:55] [INFO] [Trainer]    > Checking Optuna state for PCR...
+[2026-02-09 01:04:55] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 01:08:22] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 01:08:22] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 01:08:23] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 01:08:23] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 01:08:23] [INFO] [Trainer]    > Saved best params to data/params\OLS-3+H.json
+[2026-02-09 01:08:23] [INFO] [Trainer]    > Best Params (DB): {'epsilon': 1.8991021425999237, 'alpha': 0.00010816147324705092}
+[2026-02-09 01:08:23] [INFO] [Trainer]    ! Params have changed since last training. Forcing Retrain.
+[2026-02-09 01:08:23] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-09 01:08:30] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H.joblib
+[2026-02-09 01:08:30] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00525 | RMSE=0.19251
+[2026-02-09 01:08:30] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 01:08:30] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 01:08:31] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 01:08:31] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 01:08:31] [INFO] [Trainer]    > Saved best params to data/params\ENet+H.json
+[2026-02-09 01:08:31] [INFO] [Trainer]    > Best Params (DB): {'alpha': 0.006140123387703567, 'l1_ratio': 0.712664799801417}
+[2026-02-09 01:08:31] [INFO] [Trainer]    ! Params have changed since last training. Forcing Retrain.
+[2026-02-09 01:08:31] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-09 01:08:36] [INFO] [Trainer]    > Saved trained model to src/models/trained\ENet+H.joblib
+[2026-02-09 01:08:36] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.00252 | RMSE=0.19224
+[2026-02-09 01:08:36] [INFO] [Trainer] --- STARTING EXPERIMENT: RF ---
+[2026-02-09 01:08:36] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 01:08:37] [INFO] [Trainer]    > Checking Optuna state for RF...
+[2026-02-09 01:08:37] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 01:28:17] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 01:28:17] [INFO] [Trainer] [] SPLITTING DATA]
+[2026-02-09 01:28:17] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 01:28:18] [INFO] [Trainer] [] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 01:28:18] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 01:28:19] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 02:02:35] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 02:02:36] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 02:02:36] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 02:02:37] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 02:02:37] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 02:02:37] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 02:03:43] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-09 02:03:43] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 02:05:48] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 02:05:49] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 02:05:49] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 02:05:50] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 02:05:50] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 02:05:50] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 02:06:46] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-09 02:06:46] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 02:06:46] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-09 02:06:51] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260209_020651.joblib
+[2026-02-09 02:06:51] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00525 | RMSE=0.19251
+[2026-02-09 02:06:51] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 02:06:51] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 02:06:51] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 02:06:52] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 02:06:52] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 02:06:52] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 02:07:44] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-09 02:07:44] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 02:07:44] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-09 02:07:51] [INFO] [Trainer]    > Saved trained model to src/models/trained\ENet+H_20260209_020751.joblib
+[2026-02-09 02:07:51] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.00118 | RMSE=0.19211
+[2026-02-09 02:07:51] [INFO] [Trainer] --- STARTING EXPERIMENT: NN1 ---
+[2026-02-09 02:07:51] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 02:07:51] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 02:07:52] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 02:07:52] [INFO] [Trainer]    > Checking Optuna state for NN1...
+[2026-02-09 02:07:52] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 30 more...
+[2026-02-09 02:56:49] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-09 02:56:49] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 02:56:49] [INFO] [Trainer]    > Training Final Model (NN1)...
+[2026-02-09 03:02:43] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 03:02:43] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:02:43] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:02:44] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:02:44] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 03:02:45] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:02:45] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:02:45] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-09 03:02:51] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260209_030251.joblib
+[2026-02-09 03:02:51] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00525 | RMSE=0.19251
+[2026-02-09 03:02:51] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 03:02:51] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:02:51] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:02:52] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:02:52] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 03:02:52] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:02:52] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:02:52] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-09 03:02:57] [INFO] [Trainer]    > Saved trained model to src/models/trained\ENet+H_20260209_030257.joblib
+[2026-02-09 03:02:57] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.00516 | RMSE=0.19250
+[2026-02-09 03:02:57] [INFO] [Trainer] --- STARTING EXPERIMENT: NN1 ---
+[2026-02-09 03:02:57] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:02:57] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:02:58] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:02:58] [INFO] [Trainer]    > Checking Optuna state for NN1...
+[2026-02-09 03:02:58] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:02:58] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:02:58] [INFO] [Trainer]    > Training Final Model (NN1)...
+[2026-02-09 03:03:48] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 03:03:49] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:03:49] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:03:50] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:03:50] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 03:03:50] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:03:50] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:03:50] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-09 03:03:54] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260209_030354.joblib
+[2026-02-09 03:03:54] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00525 | RMSE=0.19251
+[2026-02-09 03:03:54] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 03:03:55] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:03:55] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:03:55] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:03:55] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 03:03:55] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:03:55] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:03:55] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-09 03:04:00] [INFO] [Trainer]    > Saved trained model to src/models/trained\ENet+H_20260209_030400.joblib
+[2026-02-09 03:04:00] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.00382 | RMSE=0.19237
+[2026-02-09 03:04:00] [INFO] [Trainer] --- STARTING EXPERIMENT: NN1 ---
+[2026-02-09 03:04:00] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:04:00] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:04:01] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:04:01] [INFO] [Trainer]    > Checking Optuna state for NN1...
+[2026-02-09 03:04:01] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:04:01] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:04:01] [INFO] [Trainer]    > Training Final Model (NN1)...
+[2026-02-09 03:13:54] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 03:13:57] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:13:57] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:13:58] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:13:58] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 03:13:58] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:13:58] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:13:58] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-09 03:14:08] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260209_031408.joblib
+[2026-02-09 03:14:08] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00525 | RMSE=0.19251
+[2026-02-09 03:14:08] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 03:14:09] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:14:09] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:14:10] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:14:10] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 03:14:10] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:14:10] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:14:10] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-09 03:14:18] [INFO] [Trainer]    > Saved trained model to src/models/trained\ENet+H_20260209_031418.joblib
+[2026-02-09 03:14:18] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.00206 | RMSE=0.19220
+[2026-02-09 03:14:18] [INFO] [Trainer] --- STARTING EXPERIMENT: NN1 ---
+[2026-02-09 03:14:19] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:14:19] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:14:20] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:14:20] [INFO] [Trainer]    > Checking Optuna state for NN1...
+[2026-02-09 03:14:20] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:14:20] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:14:20] [INFO] [Trainer]    > Training Final Model (NN1)...
+[2026-02-09 03:17:27] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-09 03:17:29] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:17:29] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:17:30] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:17:30] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-09 03:17:31] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:17:31] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:17:31] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-09 03:17:40] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260209_031740.joblib
+[2026-02-09 03:17:40] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00525 | RMSE=0.19251
+[2026-02-09 03:17:40] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-09 03:17:40] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:17:40] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:17:41] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:17:41] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-09 03:17:42] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:17:42] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:17:42] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-09 03:17:50] [INFO] [Trainer]    > Saved trained model to src/models/trained\ENet+H_20260209_031750.joblib
+[2026-02-09 03:17:50] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.00320 | RMSE=0.19231
+[2026-02-09 03:17:50] [INFO] [Trainer] --- STARTING EXPERIMENT: NN1 ---
+[2026-02-09 03:17:50] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-09 03:17:50] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
+[2026-02-09 03:17:51] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-09 03:17:51] [INFO] [Trainer]    > Checking Optuna state for NN1...
+[2026-02-09 03:17:51] [INFO] [Trainer]    > Target Reached: Found 30 trials (Target: 30). SKIPPING tuning.
+[2026-02-09 03:17:51] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-09 03:17:51] [INFO] [Trainer]    > Training Final Model (NN1)...
+[2026-02-09 03:24:11] [INFO] [Trainer]    > Saved trained model to src/models/trained\NN1_20260209_032411.joblib
+[2026-02-09 03:24:12] [INFO] [Trainer] RESULT NN1: R2_OOS=0.00420 | RMSE=0.19160

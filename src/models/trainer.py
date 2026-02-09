@@ -10,6 +10,7 @@ from src.evaluation.metrics import regression_metrics
 from src.models.config import ModelConfig
 from src.models.factory import ModelFactory
 from src.utils.logger import setup_logger
+from datetime import datetime
 
 # Use shared logger but ensure Optuna propagates logs
 logger = setup_logger("Trainer", log_dir="reports/experiments")
@@ -20,16 +21,12 @@ class AssetPricingTrainer:
         self.target_col = target_col
         self.date_col = date_col
         
-        self.ff3_features = ['mvel1', 'bm', 'mom12m'] 
+        self.ff3_features = ['mvel1', 'bm', 'mom12m']
         self.unique_dates = sorted(self.df[self.date_col].unique())
         
         # Directories for persistence
-        self.param_dir = "data/params"
-        self.model_dir = "models/trained"
-        self.optuna_db = "sqlite:///data/params/optuna.db"
-
-        # os.makedirs(self.param_dir, exist_ok=True)
-        # os.makedirs(self.model_dir, exist_ok=True)
+        self.model_dir = "src/models/trained"
+        self.optuna_db = "sqlite:///data/tuning/optuna.db"
 
     def _get_feature_subset(self, feature_set_name: str) -> List[str]:
         if feature_set_name == 'ff3':
@@ -93,48 +90,16 @@ class AssetPricingTrainer:
             
         return np.mean(scores_r2)
 
-    def _load_best_params(self, model_name: str) -> Dict[str, Any]:
-        """Tries to load params from disk. Returns empty dict if not found."""
-        path = os.path.join(self.param_dir, f"{model_name}.json")
-        if os.path.exists(path):
-            with open(path, 'r') as f:
-                logger.info(f"   > Loaded persisted params from {path}")
-                return json.load(f)
-        return {}
-
-    def _save_best_params(self, model_name: str, params: Dict[str, Any]):
-        """Saves best params to disk."""
-        path = os.path.join(self.param_dir, f"{model_name}.json")
-        with open(path, 'w') as f:
-            json.dump(params, f, indent=4)
-        logger.info(f"   > Saved best params to {path}")
-
-    def _tune_hyperparameters(self, df_dev: pd.DataFrame, config: ModelConfig) -> Dict[str, Any]:
+    def _tune_hyperparameters(self, df_dev: pd.DataFrame, config: ModelConfig) -> None:
         """
-        Step 2: Hyperparameter Tuning via Optuna.
-        Smart Resume: Checks DB first. If target trials reached, skips tuning.
+        Step 2: Hyperparameter Tuning.
         """
-        # 1. If Tuning is explicitly DISABLED in config, look for JSON file
-        if not config.use_optuna:
-            saved_params = self._load_best_params(config.name)
-            final_params = config.params.copy()
-            final_params.update(saved_params)
-            return final_params
 
-        # 2. Setup Study (Connect to DB)
         logger.info(f"   > Checking Optuna state for {config.name}...")
-        optuna.logging.set_verbosity(optuna.logging.WARNING)
-        
-        study = optuna.create_study(
-            study_name=f"{config.name}_optimization",
-            storage=self.optuna_db,
-            direction='maximize',
-            load_if_exists=True 
-        )
-        
-        # 3. SMART RESUME LOGIC
-        # Count only COMPLETE trials to avoid counting crashed/pruned ones
-        completed_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.COMPLETE]
+        optuna.logging.set_verbosity(optuna.logging.INFO)
+
+        # Smart Resume Logic, Count COMPLETED trials only
+        completed_trials = [t for t in self.study.trials if t.state == optuna.trial.TrialState.COMPLETE]
         n_existing = len(completed_trials)
         n_remaining = config.optuna_trials - n_existing
         
@@ -142,56 +107,30 @@ class AssetPricingTrainer:
             logger.info(f"   > Resuming: Found {n_existing} trials. Running {n_remaining} more...")
             
             def objective(trial):
-                return self.cross_validate(df_dev, config, n_splits=3, trial=trial)
+                return self.cross_validate(df_dev, config, n_splits=1, trial=trial)
             
-            study.optimize(objective, n_trials=n_remaining)
+            self.study.optimize(objective, n_trials=n_remaining)
             logger.info(f"   > Tuning Complete.")
-            
         else:
             logger.info(f"   > Target Reached: Found {n_existing} trials (Target: {config.optuna_trials}). SKIPPING tuning.")
-
-        # 4. Save and Return Best Params
-        # Even if we skipped tuning, we still fetch the best params from the DB
-        try:
-            logger.info(f"   > Best Value: {study.best_value:.5f}")
-            logger.info(f"   > Best Params: {study.best_params}")
-            
-            best_params = config.params.copy()
-            best_params.update(study.best_params)
-            self._save_best_params(config.name, best_params)
-            return best_params
-            
-        except ValueError:
-            # Matches case where n_trials=0 and DB is empty
-            logger.warning("   ! No completed trials found. Using default params.")
-            return config.params
 
     def _train_final_model(
             self, 
             df_dev: pd.DataFrame, 
             config: ModelConfig, 
-            best_params: Dict[str, Any], 
-            force_retrain: bool = False
         ):
-        """Step 3: Train final model on full development set."""
-
-        model_path = os.path.join(self.model_dir, f"{config.name}.joblib")
+        """
+        Step 3: Train final model from best parameters in DB.
+        """
         
-        # 1. Check if model exists and we are not forcing a retrain
-        if os.path.exists(model_path) and not force_retrain:
-            logger.info(f"   > Loading pre-trained model from {model_path}...")
-            try:
-                model = joblib.load(model_path)
-                return model
-            except Exception as e:
-                logger.warning(f"   ! Failed to load model ({e}). Retraining...")
-
         logger.info(f"   > Training Final Model ({config.name})...")
         features = self._get_feature_subset(config.feature_set)
+        best_params = self.study.best_params
         
         final_config = ModelConfig(
             name=config.name,
             model_type=config.model_type,
+            n_hidden_layers=config.n_hidden_layers,
             feature_set=config.feature_set,
             params=best_params,
             use_optuna=False
@@ -199,6 +138,13 @@ class AssetPricingTrainer:
         
         model = ModelFactory.create_model(final_config)
         model.fit(df_dev[features], df_dev[self.target_col])
+
+        # Save model
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        model_path = os.path.join(self.model_dir, f"{config.name}_{timestamp}.joblib")
+        joblib.dump(model, model_path)
+        logger.info(f"   > Saved trained model to {model_path}")
+
         return model
 
     def _evaluate_model(self, model, df_test: pd.DataFrame, config: ModelConfig):
@@ -212,12 +158,25 @@ class AssetPricingTrainer:
         logger.info(f"RESULT {config.name}: R2_OOS={metrics['r2_oos']:.5f} | RMSE={metrics['rmse']:.5f}")
         return metrics
 
-    def run_experiment(self, config: ModelConfig, force_retrain: bool = False):
+    def run_experiment(self, config: ModelConfig):
         """Orchestrates the full ML Pipeline."""
         logger.info(f"--- STARTING EXPERIMENT: {config.name} ---")
+
+        self.study = optuna.create_study(
+            study_name=f"{config.name}_optimization",
+            storage=self.optuna_db,
+            direction='maximize',
+            load_if_exists=True 
+        )
+
+        logger.info(f"[+] SPLITTING DATA")
         df_dev, df_test = self.strict_time_split(self.df)
-        best_params = self._tune_hyperparameters(df_dev, config)
-        model = self._train_final_model(df_dev, config, best_params, force_retrain=force_retrain)
+
+        logger.info(f"[+] FINDING OPTIMAL HYPERPARAMETERS")
+        self._tune_hyperparameters(df_dev, config)
+
+        logger.info(f"[+] LOADING MODEL")
+        model = self._train_final_model(df_dev, config)
         metrics = self._evaluate_model(model, df_test, config)
         
         return metrics

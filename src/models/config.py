@@ -7,12 +7,13 @@ class ModelConfig:
     model_type: Literal['huber', 'sgd_huber', 'pcr', 'random_forest', 'xgboost', 'mlp']
     feature_set: str 
     params: Dict[str, Any] = field(default_factory=dict)
-    use_optuna: bool = False
+    use_optuna: bool = True
     optuna_trials: int = 30
     description: Optional[str] = None
+    n_hidden_layers: Optional[int] = None
 
     @classmethod
-    def OLS_Huber(cls, name: str, feature_set: str = 'all', use_optuna : bool = False, trials: int = 30):
+    def OLS_Huber(cls, name: str, feature_set: str = 'all', use_optuna : bool = True, trials: int = 30):
         """Creates a standard OLS-Huber configuration."""
         return cls(
             name = name,
@@ -79,7 +80,8 @@ class ModelConfig:
             name = name, 
             model_type = 'mlp', 
             feature_set = feature_set,
-            params = {'n_hidden_layers': n_hidden_layers},
+            n_hidden_layers = n_hidden_layers,
+            params = {},
             use_optuna = use_optuna,
             optuna_trials = trials
         )

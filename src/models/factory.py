@@ -21,7 +21,7 @@ class ModelFactory:
         if config.use_optuna and trial:
             ModelFactory._inject_optuna_params(config.model_type, params, trial)
 
-        return ModelFactory._build_instance(config.model_type, params)
+        return ModelFactory._build_instance(config, params)
 
     @staticmethod
     def _inject_optuna_params(model_type: str, params: dict, trial: optuna.Trial):
@@ -55,9 +55,11 @@ class ModelFactory:
             params['learning_rate_init'] = trial.suggest_float('learning_rate_init', 1e-4, 1e-2, log=True)
 
     @staticmethod
-    def _build_instance(model_type: str, params: dict):
+    def _build_instance(config: ModelConfig, params: dict):
         """Constructs the actual model object with increased iteration limits."""
         
+        model_type = config.model_type
+
         if model_type == 'huber':
             return HuberRegressor(max_iter=2000, **params)
         
@@ -77,8 +79,7 @@ class ModelFactory:
             return XGBRegressor(objective='reg:squarederror', n_jobs=-1, **params)
             
         elif model_type == 'mlp':
-            n_layers = params['n_hidden_layers']
-            layers = tuple([max(4, 2**(6-i)) for i in range(n_layers)])
+            layers = tuple([max(4, 2**(6-i)) for i in range(config.n_hidden_layers)])
             
             return MLPRegressor(
                 hidden_layer_sizes=layers,
