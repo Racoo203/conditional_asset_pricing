@@ -1,88 +1,97 @@
 import pandas as pd
 import sqlite3
-import numpy as np
+import os
+import shutil
+from joblib import Parallel, delayed
+from src.utils.logger import setup_logger
+
+logger = setup_logger("SilverProcessor")
+
+def _process_month(date_val, db_path, output_dir):
+    """
+    Worker function:
+    1. Connects to DB (Must create new connection per thread/process)
+    2. Reads ONE month
+    3. Ranks & Scales to [-1, 1]
+    4. Writes to Parquet partition
+    """
+    try:
+        # 1. Connect (Read-only mode is safer)
+        # URI mode requires Python 3.4+ and SQLite 3.7.7+
+        conn = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+        
+        # 2. Read Data
+        query = f"SELECT * FROM bronze_characteristics WHERE date = {date_val}"
+        df = pd.read_sql(query, conn)
+        conn.close()
+        
+        if df.empty:
+            return f"Skipped {date_val} (Empty)"
+
+        # 3. Identify Features (Exclude Metadata)
+        # We assume metadata cols are known. Adapt list as needed.
+        meta_cols = ['permno', 'date', 'siccd', 'ticker', 'ret', 'shrout']
+        feature_cols = [c for c in df.columns if c not in meta_cols]
+        
+        # 4. GKX Transformation: Rank -> [-1, 1]
+        # Formula: (Rank / (N + 1)) * 2 - 1
+        ranks = df[feature_cols].rank(method='average', na_option='keep')
+        counts = df[feature_cols].count()
+        
+        # Apply formula
+        df[feature_cols] = (ranks.div(counts + 1)) * 2 - 1
+        
+        # Impute missing with 0.0 (Median)
+        df[feature_cols] = df[feature_cols].fillna(0.0)
+        
+        # 5. Write to Parquet Partition
+        # Structure: data/processed/silver/date=19800131/part.parquet
+        partition_dir = os.path.join(output_dir, f"date={date_val}")
+        os.makedirs(partition_dir, exist_ok=True)
+        
+        output_file = os.path.join(partition_dir, "part.parquet")
+        df.to_parquet(output_file, index=False, compression='snappy')
+        
+        return None # Success
+        
+    except Exception as e:
+        return f"Error on {date_val}: {str(e)}"
 
 class SilverProcessor:
-    def __init__(self, db_path: str):
-        self.conn = sqlite3.connect(db_path)
-
-    def _rank_standardize(self, df: pd.DataFrame, feature_cols: list) -> pd.DataFrame:
-        """
-        Applies GKX transformation:
-        1. Rank values cross-sectionally.
-        2. Normalize to [-0.5, 0.5].
-        3. Fill missing with 0 (the median).
-        """
-        # 1. Rank (handle ties by averaging)
-        ranks = df[feature_cols].rank(method='average', na_option='keep')
+    def __init__(self, db_path: str, output_path: str = "data/processed/silver"):
+        self.db_path = db_path
+        self.output_path = output_path
         
-        # 2. Normalize: (rank / (count + 1)) - 0.5
-        # We use count() per column to handle varying missingness
-        counts = df[feature_cols].count()
-        standardized = (ranks.div(counts + 1)) - 0.5
-        
-        # 3. Impute missing with 0.0
-        return standardized.fillna(0.0)
-
-    def process_characteristics(self):
+    def run_parallel(self, n_jobs=-1):
         """
-        Iterates through dates in Bronze, processes, saves to Silver.
+        Main entry point.
+        n_jobs=-1 uses all available CPU cores.
         """
-        print("Starting Silver processing (Rank Standardization)...")
+        logger.info(f"Starting Parallel Processing (Jobs: {n_jobs})...")
         
-        # Get unique dates to iterate over
-        dates = pd.read_sql("SELECT DISTINCT date FROM bronze_characteristics ORDER BY date", self.conn)['date'].tolist()
+        # 1. Get List of Dates
+        conn = sqlite3.connect(self.db_path)
+        dates = pd.read_sql("SELECT DISTINCT date FROM bronze_characteristics ORDER BY date", conn)['date'].tolist()
+        conn.close()
         
-        for i, d in enumerate(dates):
-            # Load only one month into memory
-            query = f"SELECT * FROM bronze_characteristics WHERE date = {d}"
-            df_month = pd.read_sql(query, self.conn)
-            
-            # Identify feature columns (exclude IDs)
-            id_cols = ['permno', 'date', 'siccd', 'ticker'] 
-            feature_cols = [c for c in df_month.columns if c not in id_cols]
-            
-            # Transform features
-            df_month[feature_cols] = self._rank_standardize(df_month, feature_cols)
-            
-            # Create a standard SQL date string (YYYY-MM-DD) for easier joining later
-            # Assuming 'date' is YYYYMMDD int
-            df_month['date_fmt'] = pd.to_datetime(df_month['date'], format='%Y%m%d')
-            
-            # Save to Silver
-            if_exists = 'replace' if i == 0 else 'append'
-            df_month.to_sql("silver_characteristics", self.conn, if_exists=if_exists, index=False)
-            
-            if i % 50 == 0: 
-                print(f"Processed date {d} ({i}/{len(dates)} = {round(100 * i / len(dates))}%)")
-
-        # Create indices for fast joining in Gold step
-        self.conn.execute("CREATE INDEX IF NOT EXISTS idx_silver_date ON silver_characteristics(date_fmt)")
-        self.conn.execute("CREATE INDEX IF NOT EXISTS idx_silver_permno ON silver_characteristics(permno)")
-        print("Silver processing complete.")
-
-    def sanity_check(self):
-        """
-        Validates the data integrity.
-        """
-        print("Running diagnostics...")
+        logger.info(f"Found {len(dates)} months to process.")
         
-        # Check 1: Range [-0.5, 0.5]
-        # We check just one characteristic (e.g., mvel1) to save time
-        stats = pd.read_sql("SELECT MIN(mvel1) as min_val, MAX(mvel1) as max_val FROM silver_characteristics", self.conn)
-        min_val, max_val = stats.iloc[0]['min_val'], stats.iloc[0]['max_val']
+        # 2. Prepare Output Directory
+        if os.path.exists(self.output_path):
+            shutil.rmtree(self.output_path)
+        os.makedirs(self.output_path)
         
-        if min_val < -0.51 or max_val > 0.51:
-            print(f"FAILURE: Standardization out of bounds. Range is [{min_val}, {max_val}]")
+        # 3. Execute Parallel Loop
+        # We use joblib's Parallel/delayed syntax
+        results = Parallel(n_jobs=n_jobs, verbose=5)(
+            delayed(_process_month)(d, self.db_path, self.output_path) 
+            for d in dates
+        )
+        
+        # 4. Check for Errors
+        errors = [r for r in results if r is not None]
+        if errors:
+            logger.error(f"Encountered {len(errors)} errors:")
+            for e in errors[:5]: logger.error(e)
         else:
-            print(f"Range check passed: [{min_val:.4f}, {max_val:.4f}]")
-
-        # Check 2: History Length
-        # Warn if too many stocks have short histories (IPO noise)
-        counts = pd.read_sql("SELECT permno, COUNT(*) as cnt FROM silver_characteristics GROUP BY permno", self.conn)
-        short_history = counts[counts['cnt'] < 12]
-        print(f"Info: {len(short_history)} stocks have < 12 months of data (out of {len(counts)} total).")
-
-    def run(self):
-        self.process_characteristics()
-        self.sanity_check()
+            logger.info("Silver Processing Complete (Parquet).")
