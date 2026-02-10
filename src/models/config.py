@@ -81,7 +81,7 @@ class ModelConfig:
             model_type = 'mlp', 
             feature_set = feature_set,
             n_hidden_layers = n_hidden_layers,
-            params = {},
+            params = {'shuffle': False, 'verbose': False},
             use_optuna = use_optuna,
             optuna_trials = trials
         )
