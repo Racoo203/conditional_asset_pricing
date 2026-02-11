@@ -22,6 +22,7 @@ class AssetPricingTrainer:
         self.date_col = date_col
         
         self.ff3_features = ['mvel1', 'bm', 'mom12m']
+        self.ff5_features = []
         self.unique_dates = sorted(self.df[self.date_col].unique())
         
         # Directories for persistence
@@ -32,7 +33,16 @@ class AssetPricingTrainer:
         if feature_set_name == 'ff3':
             return self.ff3_features
         elif feature_set_name == 'all':
-            exclude = {self.target_col, self.date_col, 'date_fmt', 'permno', 'year'}
+            exclude = {
+                self.target_col, 
+                self.date_col, 
+                'date_fmt', 
+                'permno', 
+                'year', 
+                'join_month',
+                'mktcap_next',
+                'sic2'
+            }
             return [c for c in self.df.columns if c not in exclude]
         else:
             raise ValueError(f"Unknown feature set: {feature_set_name}")

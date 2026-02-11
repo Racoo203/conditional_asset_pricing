@@ -25,6 +25,8 @@ class GoldBuilder:
         df_ret['date'] = pd.to_datetime(df_ret['date'])
         # Create Join Key: Char(Jan) joins with Ret(Feb)
         df_ret['join_key'] = df_ret['date'].dt.to_period('M')
+
+        print(df_ret[['date', 'ret_excess']].head(5))
         
         return df_ret
 
@@ -69,19 +71,14 @@ class GoldBuilder:
         for year in tqdm(sorted_years, desc="Processing Years"):
             year_files = files_by_year[year]
             
-            # --- THE FIX: LOOP & CONCAT ---
-            # We read files individually to avoid Arrow inferring "date" as a partition key
             daily_dfs = []
             for f in year_files:
-                # Read specific file path. 
-                # Pandas treats this as a flat file and won't conflict with the folder name.
                 daily_dfs.append(pd.read_parquet(f))
             
             if not daily_dfs:
                 continue
             
             df_char = pd.concat(daily_dfs, ignore_index=True)
-            # ------------------------------
             
             # Ensure Date Format
             if not pd.api.types.is_datetime64_any_dtype(df_char['date']):
