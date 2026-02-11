@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import sqlite3
 import os
-# import tidyfinance as tf
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
@@ -62,9 +61,17 @@ class BronzeIngestor:
         factors_ff_raw = factors_ff_raw.set_index(dt)
         factors_ff_raw.index.name = "date"
 
-        factors_ff_raw.to_parquet(
+        factors_ff3_monthly = (factors_ff_raw
+            .div(100)
+            .reset_index(names="date")
+            .rename(columns=str.lower)
+            .rename(columns={"mkt-rf": "mkt_excess", "rf": "risk_free"})
+            .replace({"-99.99": pd.NA, -99.99: pd.NA, -999: pd.NA})
+        )
+
+        factors_ff3_monthly.to_parquet(
             path = 'data/raw/factors_ff3_monthly.parquet',
-            index=False, 
+            index=True, 
             engine='pyarrow', 
             compression='snappy'
         )
@@ -176,6 +183,8 @@ class BronzeIngestor:
             factors_ff3_monthly = (pd.read_parquet("data/raw/factors_ff3_monthly.parquet")
                 .get(["date", "risk_free"])
             )
+
+            print(factors_ff3_monthly)
             
             crsp_monthly = (crsp_monthly
                 .merge(factors_ff3_monthly, how="left", on="date")
@@ -227,5 +236,5 @@ class BronzeIngestor:
 
     def run(self):
         self.load_ff3_factors()
-        # self.ingest_gkx_csv_chunked()
-        # self.load_crsp_api()
+        self.ingest_gkx_csv_chunked()
+        self.load_crsp_api()

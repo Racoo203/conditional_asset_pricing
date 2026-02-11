@@ -1,0 +1,72 @@
+{
+    "bronze_crsp": {
+        "schema": [
+            {
+                "name": "permno",
+                "type": "INTEGER",
+                "notnull": 0
+            },
+            {
+                "name": "date",
+                "type": "TIMESTAMP",
+                "notnull": 0
+            },
+            {
+                "name": "ret",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "shrout",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "altprc",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "primaryexch",
+                "type": "TEXT",
+                "notnull": 0
+            },
+            {
+                "name": "siccd",
+                "type": "INTEGER",
+                "notnull": 0
+            },
+            {
+                "name": "mktcap",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "mktcap_lag",
+                "type": "REAL",
+                "notnull": 0
+            },
+            {
+                "name": "exchange",
+                "type": "TEXT",
+                "notnull": 0
+            },
+            {
+                "name": "industry",
+                "type": "TEXT",
+                "notnull": 0
+            },
+            {
+                "name": "ret_excess",
+                "type": "REAL",
+                "notnull": 0
+            }
+        ],
+        "stats": {
+            "row_count": 4358835,
+            "date_col": "date",
+            "min_date": "1957-01-01 00:00:00",
+            "max_date": "2021-12-01 00:00:00"
+        }
+    }
+}

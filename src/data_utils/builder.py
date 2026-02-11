@@ -25,8 +25,6 @@ class GoldBuilder:
         df_ret['date'] = pd.to_datetime(df_ret['date'])
         # Create Join Key: Char(Jan) joins with Ret(Feb)
         df_ret['join_key'] = df_ret['date'].dt.to_period('M')
-
-        print(df_ret[['date', 'ret_excess']].head(5))
         
         return df_ret
 

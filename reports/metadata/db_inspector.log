@@ -1,0 +1,18 @@
+[2026-02-11 02:18:15] [INFO] [DB_Inspector] CONNECTED TO DB at data/processed/lakehouse.sqlite
+[2026-02-11 02:18:15] [INFO] [DB_Inspector] FOUND TABLES: ['bronze_characteristics', 'bronze_crsp']
+[2026-02-11 02:18:20] [INFO] [DB_Inspector] ANALYZED bronze_characteristics: 4117300 rows.
+[2026-02-11 02:18:20] [INFO] [DB_Inspector] STARTING FULL METADATA GENERATION...
+[2026-02-11 02:18:20] [INFO] [DB_Inspector] FOUND TABLES: ['bronze_characteristics', 'bronze_crsp']
+[2026-02-11 02:18:24] [INFO] [DB_Inspector] ANALYZED bronze_characteristics: 4117300 rows.
+[2026-02-11 02:18:25] [INFO] [DB_Inspector] ANALYZED bronze_crsp: 4358835 rows.
+[2026-02-11 02:18:25] [INFO] [DB_Inspector] SAVED JSON REPORT: reports/metadata\db_metadata_20260211_021825.json
+[2026-02-11 02:18:25] [INFO] [DB_Inspector] SAVED MARKDOWN REPORT: reports/metadata\db_metadata_20260211_021825.md
+[2026-02-11 02:18:25] [INFO] [DB_Inspector] CONNECTION CLOSED
+[2026-02-11 02:23:19] [INFO] [DB_Inspector] CONNECTED TO DB at data/processed/lakehouse.sqlite
+[2026-02-11 02:23:19] [INFO] [DB_Inspector] FOUND TABLES: ['bronze_crsp']
+[2026-02-11 02:23:21] [INFO] [DB_Inspector] STARTING FULL METADATA GENERATION...
+[2026-02-11 02:23:21] [INFO] [DB_Inspector] FOUND TABLES: ['bronze_crsp']
+[2026-02-11 02:23:22] [INFO] [DB_Inspector] ANALYZED bronze_crsp: 4358835 rows.
+[2026-02-11 02:23:22] [INFO] [DB_Inspector] SAVED JSON REPORT: reports/metadata\db_metadata_20260211_022322.json
+[2026-02-11 02:23:22] [INFO] [DB_Inspector] SAVED MARKDOWN REPORT: reports/metadata\db_metadata_20260211_022322.md
+[2026-02-11 02:23:22] [INFO] [DB_Inspector] CONNECTION CLOSED

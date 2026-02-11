@@ -40,7 +40,7 @@ class AssetPricingTrainer:
                 'permno', 
                 'year', 
                 'join_month',
-                'mktcap_next',
+                'mktcap_next', # This would give future info to the model.
                 'sic2'
             }
             return [c for c in self.df.columns if c not in exclude]
