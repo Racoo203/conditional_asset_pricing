@@ -106,3 +106,47 @@
 [2026-02-10 14:46:12] [INFO] [Evaluator] [+] SPLITTING DATA
 [2026-02-10 14:46:12] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 2698578 | Test: 582122
 [2026-02-10 14:46:13] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:21:34] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:21:34] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:21:34] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:21:36] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:22:46] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:22:46] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:22:46] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:22:48] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:24:50] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:24:50] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:24:50] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:24:52] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:24:59] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:24:59] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:24:59] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:25:01] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:25:02] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:25:02] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:25:02] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:25:05] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:25:05] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:25:05] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:25:05] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:25:07] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:25:08] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:25:08] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:25:08] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:25:10] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:26:23] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:26:23] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:26:23] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:26:26] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:26:28] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:26:28] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:26:28] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:26:31] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-11 09:26:31] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-11 09:26:31] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-11 09:26:32] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 09:26:34] [INFO] [Evaluator] [+] LOADING MODEL
+[2026-02-12 10:33:32] [INFO] [Evaluator] --- STARTING EVALUATION ---
+[2026-02-12 10:33:32] [INFO] [Evaluator] [+] SPLITTING DATA
+[2026-02-12 10:33:32] [INFO] [Evaluator] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-12 10:33:34] [INFO] [Evaluator] [+] LOADING MODEL

@@ -547,3 +547,137 @@
 [2026-02-10 03:36:10] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
 [2026-02-10 03:36:10] [INFO] [Trainer]    > Checking Optuna state for NN2...
 [2026-02-10 03:36:10] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 50 more...
+[2026-02-11 02:27:40] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS+H ---
+[2026-02-11 02:27:41] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-11 02:27:41] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 02:27:42] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-11 02:27:42] [INFO] [Trainer]    > Checking Optuna state for OLS+H...
+[2026-02-11 02:27:42] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 50 more...
+[2026-02-11 04:16:07] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-11 04:16:07] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 04:16:07] [INFO] [Trainer]    > Training Final Model (OLS+H)...
+[2026-02-11 04:20:14] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS+H_20260211_042014.joblib
+[2026-02-11 04:20:14] [INFO] [Trainer] RESULT OLS+H: R2_OOS=-0.00797 | RMSE=0.17580
+[2026-02-11 04:20:14] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 04:20:14] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-11 04:20:15] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 04:21:04] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-11 04:21:04] [INFO] [Trainer]    > Checking Optuna state for OLS-3+H...
+[2026-02-11 04:21:04] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 50 more...
+[2026-02-11 04:22:46] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-11 04:22:46] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 04:22:46] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 04:22:52] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_042252.joblib
+[2026-02-11 04:22:52] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00537 | RMSE=0.17557
+[2026-02-11 04:22:52] [INFO] [Trainer] --- STARTING EXPERIMENT: ENet+H ---
+[2026-02-11 04:22:52] [INFO] [Trainer] [+] SPLITTING DATA
+[2026-02-11 04:22:52] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 04:22:53] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS
+[2026-02-11 04:22:53] [INFO] [Trainer]    > Checking Optuna state for ENet+H...
+[2026-02-11 04:22:53] [INFO] [Trainer]    > Resuming: Found 0 trials. Running 50 more...
+[2026-02-11 04:30:37] [INFO] [Trainer]    > Tuning Complete.
+[2026-02-11 04:30:37] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 04:30:37] [INFO] [Trainer]    > Training Final Model (ENet+H)...
+[2026-02-11 04:31:05] [INFO] [Trainer]    > Saved trained model to src/models/trained\ENet+H_20260211_043105.joblib
+[2026-02-11 04:31:05] [INFO] [Trainer] RESULT ENet+H: R2_OOS=-0.00255 | RMSE=0.17533
+[2026-02-11 20:08:26] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 20:08:26] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 20:08:28] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=30)
+[2026-02-11 21:46:33] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 21:46:33] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 21:46:34] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=1)
+[2026-02-11 21:46:34] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 21:46:34] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 21:46:41] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_214641.joblib
+[2026-02-11 21:46:41] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 21:47:25] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 21:47:26] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 21:47:26] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=1)
+[2026-02-11 21:47:26] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 21:47:26] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 21:47:32] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_214732.joblib
+[2026-02-11 21:47:32] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 21:59:22] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 21:59:22] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 21:59:23] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 21:59:23] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 21:59:23] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 21:59:29] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_215929.joblib
+[2026-02-11 21:59:29] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 21:59:49] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 21:59:49] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 21:59:50] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 21:59:50] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 21:59:50] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 21:59:55] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_215955.joblib
+[2026-02-11 21:59:55] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 22:00:51] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 22:00:51] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 22:00:52] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 22:00:52] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 22:00:52] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 22:00:59] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_220059.joblib
+[2026-02-11 22:00:59] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 22:08:22] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 22:08:22] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 22:08:23] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 22:08:23] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 22:08:23] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 22:08:29] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_220829.joblib
+[2026-02-11 22:08:29] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 22:13:05] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 22:13:05] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 22:13:06] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 22:13:06] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 22:13:06] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 22:13:12] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_221312.joblib
+[2026-02-11 22:13:12] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 22:14:09] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 22:14:09] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 22:14:10] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 22:14:10] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 22:14:10] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 22:14:15] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_221415.joblib
+[2026-02-11 22:14:16] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 22:15:43] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 22:15:43] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 22:15:44] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 22:15:44] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 22:15:44] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 22:15:50] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_221550.joblib
+[2026-02-11 22:15:50] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 22:38:50] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 22:38:50] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 22:38:52] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 22:38:52] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 22:38:52] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 22:39:00] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_223900.joblib
+[2026-02-11 22:39:00] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-11 22:43:15] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-11 22:43:15] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-11 22:43:16] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-11 22:43:16] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-11 22:43:16] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-11 22:43:23] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260211_224323.joblib
+[2026-02-11 22:43:23] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-12 00:14:13] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-12 00:14:13] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3172950 | Test: 892328
+[2026-02-12 00:14:15] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-12 00:14:15] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-12 00:14:15] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-12 00:14:21] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260212_001421.joblib
+[2026-02-12 00:14:21] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00777 | RMSE=0.17578
+[2026-02-12 00:16:57] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-12 00:16:57] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3169929 | Test: 891283
+[2026-02-12 00:16:59] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-12 00:16:59] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-12 00:16:59] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-12 00:17:10] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260212_001710.joblib
+[2026-02-12 00:17:10] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00866 | RMSE=0.14909
+[2026-02-12 00:21:16] [INFO] [Trainer] --- STARTING EXPERIMENT: OLS-3+H ---
+[2026-02-12 00:21:16] [INFO] [Trainer] Time Split: 2008-12-31 | Train: 3169929 | Test: 891283
+[2026-02-12 00:21:18] [INFO] [Trainer] [+] FINDING OPTIMAL HYPERPARAMETERS (n_trials=5)
+[2026-02-12 01:19:07] [INFO] [Trainer] [+] LOADING MODEL
+[2026-02-12 01:19:07] [INFO] [Trainer]    > Training Final Model (OLS-3+H)...
+[2026-02-12 01:19:13] [INFO] [Trainer]    > Saved trained model to src/models/trained\OLS-3+H_20260212_011913.joblib
+[2026-02-12 01:19:13] [INFO] [Trainer] RESULT OLS-3+H: R2_OOS=-0.00679 | RMSE=0.14896

@@ -1,3 +1,4 @@
+#src/evaluation/metrics.py
 import numpy as np
 from sklearn.metrics import r2_score, mean_squared_error
 
@@ -17,5 +18,5 @@ def regression_metrics(y_true, y_pred):
     return {
         'rmse': np.sqrt(mse_model),
         'r2_sklearn': r2_score(y_true, y_pred),
-        'r2_oos': 1 - (mse_model / mse_zero) # The rigorous Asset Pricing metric
+        'r2_oos': 1 - (mse_model / mse_zero)
     }
